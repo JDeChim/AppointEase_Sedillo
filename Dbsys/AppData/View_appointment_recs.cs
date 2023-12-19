@@ -15,28 +15,18 @@ namespace Dbsys.AppData
 using System;
     using System.Collections.Generic;
     
-public partial class appointment_table
+public partial class View_appointment_recs
 {
 
-    public int ANo { get; set; }
-
-    public string ACName { get; set; }
-
-    public string APName { get; set; }
-
-    public string APetType { get; set; }
-
-    public string APDOB { get; set; }
-
-    public string AADate { get; set; }
-
-    public string AATime { get; set; }
-
-    public string ACComment { get; set; }
+    public int CNo { get; set; }
 
     public string ARemarks { get; set; }
 
-    public Nullable<int> CNo { get; set; }
+    public string AATime { get; set; }
+
+    public string AADate { get; set; }
+
+    public string CName { get; set; }
 
 }
 

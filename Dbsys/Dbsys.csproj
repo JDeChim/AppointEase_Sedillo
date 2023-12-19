@@ -85,8 +85,23 @@
     <Compile Include="AppData\UserInformation.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AppData\View_appointment_recs.cs">
+      <DependentUpon>DbysModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="AppData\vw_all_user_role.cs">
       <DependentUpon>DbysModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Approval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Approval.Designer.cs">
+      <DependentUpon>Approval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ClientApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClientApp.Designer.cs">
+      <DependentUpon>ClientApp.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Frm_Admin_Dashboard.cs">
       <SubType>Form</SubType>
@@ -130,6 +145,12 @@
     <Compile Include="UserLogged.cs" />
     <Compile Include="Utils\Constant.cs" />
     <Compile Include="Utils\Func.cs" />
+    <EmbeddedResource Include="Forms\Approval.resx">
+      <DependentUpon>Approval.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ClientApp.resx">
+      <DependentUpon>ClientApp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Frm_Admin_Dashboard.resx">
       <DependentUpon>Frm_Admin_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +217,15 @@
       <DependentUpon>DbysModel.edmx</DependentUpon>
       <LastGenOutput>DbysModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\linear-speech-bubble-message_151170-1160-removebg-preview.png" />
+    <None Include="Resources\360_F_285349564_v8T4qlyVFNGo1vtFw98XgBBaWGJIDEOz.jpg" />
+    <None Include="Resources\beautiful-happy-chocolate-labrador-puppy-260nw-1918784765.jpg" />
+    <None Include="Resources\welsh-corgi-dog-yellow-background_106368-5796.jpg" />
+    <None Include="Resources\cat-dog-are-sitting-together-pink-background_220363-621__1_-removebg-preview.png" />
+    <None Include="Resources\logo-black.png" />
+    <None Include="Resources\vivid-blurred-colorful-wallpaper-background_58702-2934.jpg" />
+    <None Include="Resources\download.jpg" />
+    <None Include="Resources\istockphoto-1213516345-170667a.jpg" />
     <None Include="Resources\Untitled design %283%291.png" />
     <None Include="Resources\Untitled design %283%29.png" />
     <None Include="Resources\cool-puppy-dog-with-glasses-studio-clear-background_933798-4501.jpg" />

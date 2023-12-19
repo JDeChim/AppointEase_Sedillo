@@ -23,7 +23,7 @@ namespace Dbsys.Forms
 
         private void Frm_Admin_Dashboard_Load(object sender, EventArgs e)
         {
-            dgv_main.DataSource = userRepo.AllUserRole();
+            dataGridView2.DataSource = userRepo.AllUserRole();
             toolStripStatusUser.Text = UserLogged.GetInstance().UserAccount.userName;
         }
 
@@ -33,6 +33,22 @@ namespace Dbsys.Forms
             { 
                 frm.ShowDialog();
             }
+        }
+       
+
+        private void clientAppointmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientApp Cp = new ClientApp();
+            Cp.ShowDialog();
+            this.Close();
+            
+        }
+
+        private void approvalHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Approval ap = new Approval();
+            ap.ShowDialog();
+            this.Close();
         }
     }
 }

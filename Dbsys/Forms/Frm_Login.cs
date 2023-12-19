@@ -15,7 +15,10 @@ namespace Dbsys
     
     public partial class Frm_Login : Form
     {
+        public static string sendtext;
+
         UserRepository userRepo;
+        Frm_Student_Dashboard clientDashboardForm = new Frm_Student_Dashboard();
         public Frm_Login()
         {
             InitializeComponent();
@@ -42,6 +45,7 @@ namespace Dbsys
             {
                 if (userLogged.userPassword.Equals(txtPassword.Text))
                 {
+                    sendtext = txtUsername.Text;
 
                     UserLogged.GetInstance().UserAccount = userLogged;
 
@@ -54,7 +58,8 @@ namespace Dbsys
                             break;
                         case Role.Doctor:
                             // Load Teacher Dashboard
-                            new Frm_Doctor_DashBoard().Show();
+                            Frm_Doctor_DashBoard doctorDashboardForm = new Frm_Doctor_DashBoard(clientDashboardForm);
+                            doctorDashboardForm.Show();
                             this.Hide();
                             break;
                         case Role.Admin:

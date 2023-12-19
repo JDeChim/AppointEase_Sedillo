@@ -73,6 +73,16 @@ namespace Dbsys.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _360_F_285349564_v8T4qlyVFNGo1vtFw98XgBBaWGJIDEOz {
+            get {
+                object obj = ResourceManager.GetObject("360_F_285349564_v8T4qlyVFNGo1vtFw98XgBBaWGJIDEOz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap anime_school_background_dh3ommnxthw4nln7 {
             get {
                 object obj = ResourceManager.GetObject("anime-school-background-dh3ommnxthw4nln7", resourceCulture);
@@ -103,9 +113,39 @@ namespace Dbsys.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap beautiful_happy_chocolate_labrador_puppy_260nw_1918784765 {
+            get {
+                object obj = ResourceManager.GetObject("beautiful-happy-chocolate-labrador-puppy-260nw-1918784765", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cat_dog_are_sitting_together_pink_background_220363_621__1__removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("cat-dog-are-sitting-together-pink-background_220363-621__1_-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cool_puppy_dog_with_glasses_studio_clear_background_933798_4501 {
             get {
                 object obj = ResourceManager.GetObject("cool-puppy-dog-with-glasses-studio-clear-background_933798-4501", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap download {
+            get {
+                object obj = ResourceManager.GetObject("download", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +166,36 @@ namespace Dbsys.Properties {
         internal static System.Drawing.Bitmap GlassT {
             get {
                 object obj = ResourceManager.GetObject("GlassT", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap istockphoto_1213516345_170667a {
+            get {
+                object obj = ResourceManager.GetObject("istockphoto-1213516345-170667a", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap linear_speech_bubble_message_151170_1160_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("linear-speech-bubble-message_151170-1160-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_black {
+            get {
+                object obj = ResourceManager.GetObject("logo-black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,6 +336,26 @@ namespace Dbsys.Properties {
         internal static System.Drawing.Bitmap Untitled_design__3_1 {
             get {
                 object obj = ResourceManager.GetObject("Untitled design (3)1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vivid_blurred_colorful_wallpaper_background_58702_2934 {
+            get {
+                object obj = ResourceManager.GetObject("vivid-blurred-colorful-wallpaper-background_58702-2934", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap welsh_corgi_dog_yellow_background_106368_5796 {
+            get {
+                object obj = ResourceManager.GetObject("welsh-corgi-dog-yellow-background_106368-5796", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

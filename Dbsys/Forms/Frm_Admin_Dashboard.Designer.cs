@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_main = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusUser = new System.Windows.Forms.ToolStripStatusLabel();
@@ -37,21 +37,22 @@
             this.userToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.appointmentsHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientAppointmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.approvalHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip2 = new System.Windows.Forms.StatusStrip();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_main)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgv_main
+            // dataGridView2
             // 
-            this.dgv_main.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_main.Location = new System.Drawing.Point(38, 25);
-            this.dgv_main.Name = "dgv_main";
-            this.dgv_main.Size = new System.Drawing.Size(618, 326);
-            this.dgv_main.TabIndex = 0;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(323, 60);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(347, 255);
+            this.dataGridView2.TabIndex = 0;
             // 
             // statusStrip1
             // 
@@ -78,8 +79,10 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.appointmentsHistoryToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(682, 24);
@@ -116,15 +119,28 @@
             this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             // 
-            // pictureBox1
+            // appointmentsHistoryToolStripMenuItem
             // 
-            this.pictureBox1.Image = global::Dbsys.Properties.Resources.pic1;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(682, 375);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.appointmentsHistoryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientAppointmentToolStripMenuItem,
+            this.approvalHistoryToolStripMenuItem});
+            this.appointmentsHistoryToolStripMenuItem.Name = "appointmentsHistoryToolStripMenuItem";
+            this.appointmentsHistoryToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
+            this.appointmentsHistoryToolStripMenuItem.Text = "Appointments History";
+            // 
+            // clientAppointmentToolStripMenuItem
+            // 
+            this.clientAppointmentToolStripMenuItem.Name = "clientAppointmentToolStripMenuItem";
+            this.clientAppointmentToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientAppointmentToolStripMenuItem.Text = "Client Appointment";
+            this.clientAppointmentToolStripMenuItem.Click += new System.EventHandler(this.clientAppointmentToolStripMenuItem_Click);
+            // 
+            // approvalHistoryToolStripMenuItem
+            // 
+            this.approvalHistoryToolStripMenuItem.Name = "approvalHistoryToolStripMenuItem";
+            this.approvalHistoryToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.approvalHistoryToolStripMenuItem.Text = "Approval History";
+            this.approvalHistoryToolStripMenuItem.Click += new System.EventHandler(this.approvalHistoryToolStripMenuItem_Click);
             // 
             // statusStrip2
             // 
@@ -138,22 +154,22 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Yellow;
+            this.BackgroundImage = global::Dbsys.Properties.Resources.welsh_corgi_dog_yellow_background_106368_5796;
             this.ClientSize = new System.Drawing.Size(682, 375);
             this.Controls.Add(this.statusStrip2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.dgv_main);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.dataGridView2);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Frm_Admin_Dashboard";
             this.Text = "Frm_Admin_Dashboard";
             this.Load += new System.EventHandler(this.Frm_Admin_Dashboard_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_main)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,7 +177,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dgv_main;
+        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusUser;
@@ -170,7 +186,9 @@
         private System.Windows.Forms.ToolStripMenuItem userToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createUserToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.StatusStrip statusStrip2;
+        private System.Windows.Forms.ToolStripMenuItem appointmentsHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientAppointmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem approvalHistoryToolStripMenuItem;
     }
 }

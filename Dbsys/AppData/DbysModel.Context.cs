@@ -48,6 +48,8 @@ public partial class DBSYSEntities : DbContext
 
     public DbSet<appointment_table> appointment_table { get; set; }
 
+    public DbSet<View_appointment_recs> View_appointment_recs { get; set; }
+
 
     public virtual int sp_newUser(string username, string password, Nullable<int> roleId, Nullable<int> createdBy)
     {

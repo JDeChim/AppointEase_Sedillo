@@ -5,27 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DBSYSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'DBSYS.dbo.appointment_table' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="appointment_table">
           <Key>
             <PropertyRef Name="ANo" />
-            <PropertyRef Name="ACName" />
-            <PropertyRef Name="APName" />
-            <PropertyRef Name="APetType" />
-            <PropertyRef Name="APDOB" />
-            <PropertyRef Name="AADate" />
-            <PropertyRef Name="AATime" />
-            <PropertyRef Name="ACComment" />
           </Key>
-          <Property Name="ANo" Type="int" Nullable="false" />
+          <Property Name="ANo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ACName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="APName" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="APetType" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="APDOB" Type="datetime" Nullable="false" />
-          <Property Name="AADate" Type="datetime" Nullable="false" />
+          <Property Name="APDOB" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AADate" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="AATime" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ACComment" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ARemarks" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CNo" Type="int" />
         </EntityType>
         <EntityType Name="ClientDashboarD">
           <Key>
@@ -71,6 +64,22 @@ warning 6002: The table/view 'DBSYS.dbo.appointment_table' does not have a prima
           <Property Name="userId" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'DBSYS.dbo.View_appointment_recs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_appointment_recs">
+          <Key>
+            <PropertyRef Name="CNo" />
+            <PropertyRef Name="ARemarks" />
+            <PropertyRef Name="AATime" />
+            <PropertyRef Name="AADate" />
+            <PropertyRef Name="CName" />
+          </Key>
+          <Property Name="CNo" Type="int" Nullable="false" />
+          <Property Name="ARemarks" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AATime" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AADate" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="vw_all_user_role">
           <Key>
@@ -95,22 +104,44 @@ warning 6002: The table/view 'DBSYS.dbo.vw_all_user_role' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_appointment_table_ClientDashboarD">
+          <End Role="ClientDashboarD" Type="Self.ClientDashboarD" Multiplicity="0..1" />
+          <End Role="appointment_table" Type="Self.appointment_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientDashboarD">
+              <PropertyRef Name="CNo" />
+            </Principal>
+            <Dependent Role="appointment_table">
+              <PropertyRef Name="CNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientDashboarD_ClientDashboarD">
+          <End Role="ClientDashboarD" Type="Self.ClientDashboarD" Multiplicity="1" />
+          <End Role="ClientDashboarD1" Type="Self.ClientDashboarD" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ClientDashboarD">
+              <PropertyRef Name="CNo" />
+            </Principal>
+            <Dependent Role="ClientDashboarD1">
+              <PropertyRef Name="CNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DBSYSModelStoreContainer">
+          <EntitySet Name="appointment_table" EntityType="Self.appointment_table" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClientDashboarD" EntityType="Self.ClientDashboarD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserAccount" EntityType="Self.UserAccount" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserInformation" EntityType="Self.UserInformation" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="appointment_table" EntityType="Self.appointment_table" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="View_appointment_recs" EntityType="Self.View_appointment_recs" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
-[appointment_table].[ANo] AS [ANo], 
-[appointment_table].[ACName] AS [ACName], 
-[appointment_table].[APName] AS [APName], 
-[appointment_table].[APetType] AS [APetType], 
-[appointment_table].[APDOB] AS [APDOB], 
-[appointment_table].[AADate] AS [AADate], 
-[appointment_table].[AATime] AS [AATime], 
-[appointment_table].[ACComment] AS [ACComment]
-FROM [dbo].[appointment_table] AS [appointment_table]</DefiningQuery>
+[View_appointment_recs].[CNo] AS [CNo], 
+[View_appointment_recs].[ARemarks] AS [ARemarks], 
+[View_appointment_recs].[AATime] AS [AATime], 
+[View_appointment_recs].[AADate] AS [AADate], 
+[View_appointment_recs].[CName] AS [CName]
+FROM [dbo].[View_appointment_recs] AS [View_appointment_recs]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vw_all_user_role" EntityType="Self.vw_all_user_role" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -123,6 +154,14 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           <AssociationSet Name="FK__UserInfor__userI__1BFD2C07" Association="Self.FK__UserInfor__userI__1BFD2C07">
             <End Role="UserAccount" EntitySet="UserAccount" />
             <End Role="UserInformation" EntitySet="UserInformation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_appointment_table_ClientDashboarD" Association="Self.FK_appointment_table_ClientDashboarD">
+            <End Role="ClientDashboarD" EntitySet="ClientDashboarD" />
+            <End Role="appointment_table" EntitySet="appointment_table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientDashboarD_ClientDashboarD" Association="Self.FK_ClientDashboarD_ClientDashboarD">
+            <End Role="ClientDashboarD" EntitySet="ClientDashboarD" />
+            <End Role="ClientDashboarD1" EntitySet="ClientDashboarD" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -146,6 +185,15 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
           </AssociationSet>
           <EntitySet Name="ClientDashboarD" EntityType="DBSYSModel.ClientDashboarD" />
           <EntitySet Name="appointment_table" EntityType="DBSYSModel.appointment_table" />
+          <AssociationSet Name="FK_appointment_table_ClientDashboarD" Association="DBSYSModel.FK_appointment_table_ClientDashboarD">
+            <End Role="ClientDashboarD" EntitySet="ClientDashboarD" />
+            <End Role="appointment_table" EntitySet="appointment_table" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClientDashboarD_ClientDashboarD" Association="DBSYSModel.FK_ClientDashboarD_ClientDashboarD">
+            <End Role="ClientDashboarD" EntitySet="ClientDashboarD" />
+            <End Role="ClientDashboarD1" EntitySet="ClientDashboarD" />
+          </AssociationSet>
+          <EntitySet Name="View_appointment_recs" EntityType="DBSYSModel.View_appointment_recs" />
         </EntityContainer>
         <EntityType Name="Role">
           <Key>
@@ -218,22 +266,55 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
         <EntityType Name="appointment_table">
           <Key>
             <PropertyRef Name="ANo" />
-            <PropertyRef Name="ACName" />
-            <PropertyRef Name="APName" />
-            <PropertyRef Name="APetType" />
-            <PropertyRef Name="APDOB" />
-            <PropertyRef Name="AADate" />
-            <PropertyRef Name="AATime" />
-            <PropertyRef Name="ACComment" />
           </Key>
           <Property Name="ANo" Type="Int32" Nullable="false" />
           <Property Name="ACName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="APName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="APetType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="APDOB" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="AADate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="APDOB" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="AADate" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
           <Property Name="AATime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="ACComment" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ARemarks" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CNo" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_appointment_table_ClientDashboarD">
+          <End Type="DBSYSModel.ClientDashboarD" Role="ClientDashboarD" Multiplicity="0..1" />
+          <End Type="DBSYSModel.appointment_table" Role="appointment_table" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ClientDashboarD">
+              <PropertyRef Name="CNo" />
+            </Principal>
+            <Dependent Role="appointment_table">
+              <PropertyRef Name="CNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClientDashboarD_ClientDashboarD">
+          <End Type="DBSYSModel.ClientDashboarD" Role="ClientDashboarD" Multiplicity="1" />
+          <End Type="DBSYSModel.ClientDashboarD" Role="ClientDashboarD1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="ClientDashboarD">
+              <PropertyRef Name="CNo" />
+            </Principal>
+            <Dependent Role="ClientDashboarD1">
+              <PropertyRef Name="CNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="View_appointment_recs">
+          <Key>
+            <PropertyRef Name="CNo" />
+            <PropertyRef Name="ARemarks" />
+            <PropertyRef Name="AATime" />
+            <PropertyRef Name="AADate" />
+            <PropertyRef Name="CName" />
+          </Key>
+          <Property Name="CNo" Type="Int32" Nullable="false" />
+          <Property Name="ARemarks" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AATime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AADate" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -299,8 +380,10 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="appointment_table">
-            <EntityTypeMapping TypeName="DBSYSModel.appointment_table">
+            <EntityTypeMapping TypeName="IsTypeOf(DBSYSModel.appointment_table)">
               <MappingFragment StoreEntitySet="appointment_table">
+                <ScalarProperty Name="CNo" ColumnName="CNo" />
+                <ScalarProperty Name="ARemarks" ColumnName="ARemarks" />
                 <ScalarProperty Name="ACComment" ColumnName="ACComment" />
                 <ScalarProperty Name="AATime" ColumnName="AATime" />
                 <ScalarProperty Name="AADate" ColumnName="AADate" />
@@ -309,6 +392,17 @@ FROM [dbo].[vw_all_user_role] AS [vw_all_user_role]</DefiningQuery>
                 <ScalarProperty Name="APName" ColumnName="APName" />
                 <ScalarProperty Name="ACName" ColumnName="ACName" />
                 <ScalarProperty Name="ANo" ColumnName="ANo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_appointment_recs">
+            <EntityTypeMapping TypeName="DBSYSModel.View_appointment_recs">
+              <MappingFragment StoreEntitySet="View_appointment_recs">
+                <ScalarProperty Name="CName" ColumnName="CName" />
+                <ScalarProperty Name="AADate" ColumnName="AADate" />
+                <ScalarProperty Name="AATime" ColumnName="AATime" />
+                <ScalarProperty Name="ARemarks" ColumnName="ARemarks" />
+                <ScalarProperty Name="CNo" ColumnName="CNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
